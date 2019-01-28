@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src='./vQuery.js'>//vQuery</script>
+        <link rel="stylesheet" href="./vQuery.css">
+        <title>vQuery - jQuery lite</title>
+    </head>
+    <body>
+        
+        <div id='wrapper'>
+            <div class='jumbotron m-1'>
+                <section> 
+                    <h1>
+                        vQuery
+                        <small class="d-block">The lighter way to enjoy DOMs</small>
+                    </h1>
+                </section>
+            </div>
+            
+            <div id='content' class='content'>
+            
+                <div class='accordion'>
+                    
+                    <section class='mb-4'>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        Traversal
+                                    </strong>
+                                </h3>
+                            </div>
+                        
+                            <!--<div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>-->
+                         </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        closest
+                                    </strong>
+                                    <small>
+                                            Searches up the DOM tree for the first element specified.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            closest( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            closest( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            closest( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  find
+                                    </strong>
+                                    <small>
+                                        Searches each selected element for any elements specified.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            find( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            find( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            find( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            find( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            find( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: filterable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  next
+                                    </strong>
+                                    <small>
+                                        Select the immediate following sibling on the DOM tree.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            next( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            next( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            next( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            next( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            next( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+    
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  nextAll
+                                    </strong>
+                                    <small>
+                                        Selects all following siblings on the DOM tree.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            nextAll( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextAll( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextAll( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextAll( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextAll( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  nextUntil
+                                    </strong>
+                                    <small class='small'>
+                                        Selects all following siblings on the DOM tree until the specified element is reached.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            nextUntil( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextUntil( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextUntil( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextUntil( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            nextUntil( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  prev
+                                    </strong>
+                                    <small>
+                                        Selects the immediate preceding sibling on the DOM tree.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            prev( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prev( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prev( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prev( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prev( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  prevAll
+                                    </strong>
+                                    <small>
+                                        Selects all predceding siblings on the DOM tree
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            prevAll( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevAll( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevAll( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevAll( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevAll( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  prevUntil
+                                    </strong>
+                                    <small>
+                                        Selects all preceding siblings on the DOM tree until the specified element is reached.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            prevUntil( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevUntil( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevUntil( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevUntil( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            prevUntil( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  parent
+                                    </strong>
+                                    <small>
+                                        Selects the parent of each element.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            parent( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parent( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parent( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parent( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parent( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  parents
+                                    </strong>
+                                    <small>
+                                        Selects all the parents of each element.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            parents( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parents( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parents( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parents( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parents( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  parentsUntil
+                                    </strong>
+                                    <small>
+                                        Select the parents of each element until the specified element is reached.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            parentsUntil( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parentsUntil( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches the element.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parentsUntil( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Traverses up the DOM tree for each selected element and gets the first that matches any within the selector.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parentsUntil( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            parentsUntil( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: nextable ( selector / element / collection / vQuery )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+                    <section class='mb-4'>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        Manipulation
+                                    </strong>
+                                </h3>
+                            </div>
+                        
+                            <!--<div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>-->
+                         </div>
+    
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  addClass
+                                    </strong>
+                                    <small>
+                                        Add the specified classes to the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  after
+                                    </strong>
+                                    <small>
+                                        Inserts content after the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  append
+                                    </strong>
+                                    <small>
+                                        Append content to the end of the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        appendTo
+                                    </strong>
+                                    <small>
+                                        Appends the selected elements to the targeted element.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  attr
+                                    </strong>
+                                    <small>
+                                        Add, alter or retrieve the specified attribute values from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  before
+                                    </strong>
+                                    <small>
+                                        Insert content before the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  data
+                                    </strong>
+                                    <small>
+                                        Add, alter or retrieve data from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  html
+                                    </strong>
+                                    <small>
+                                        Alter or retrieve the html from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  prepend
+                                    </strong>
+                                    <small>
+                                        prepend content to the start of the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        prependTo
+                                    </strong>
+                                    <small>
+                                        Inserts the selected elements to the beginning of the target element
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  prop
+                                    </strong>
+                                    <small>
+                                        Add properties or retrive the value of properties from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+    
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  removeClass
+                                    </strong>
+                                    <small>
+                                        Remove the specified classes from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        text
+                                    </strong>
+                                    <small>
+                                        Alter the text or retrieve the text from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  val
+                                    </strong>
+                                    <small>
+                                        Alter the value or retrieve the value from the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        wrap
+                                    </strong>
+                                    <small>
+                                        Wrap HTML around each of the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        wrapAll
+                                    </strong>
+                                    <small>
+                                        Wrap HTML around all of the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        wrapInner
+                                    </strong>
+                                    <small>
+                                        Wrap HTML around the contents of each selected element.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                    </section>
+                    <section class='mb-4'>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        Events
+                                    </strong>
+                                </h3>
+                            </div>
+                        
+                            <!--<div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>-->
+                         </div>
+    
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  click
+                                    </strong>
+                                </h5>
+                                <small>
+                                    Attach an event handler to the click event.
+                                </small>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  off
+                                    </strong>
+                                    <small>
+                                        Unattach an event handler to the an event.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  on
+                                    </strong>
+                                    <small>
+                                        Attach an event handler to an event.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  trigger
+                                    </strong>
+                                    <small>
+                                        Trigger the specified event on the elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+                    <section class='mb-4'>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        Alteration
+                                    </strong>
+                                </h3>
+                            </div>
+                        
+                            <!--<div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>-->
+                         </div>
+    
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  add
+                                    </strong>
+                                    <small>
+                                        Add elements to the selected elements on the chain.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        addBack
+                                    </strong>
+                                    <small>
+                                        Add the previously selected elements before the latest traversal or alteration method.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        clone
+                                    </strong>
+                                    <small>
+                                        Make a copy of the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        detach
+                                    </strong>
+                                    <small>
+                                        Remove the selected elements but keep a reference to them.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        end
+                                    </strong>
+                                    <small>
+                                        Go back to the previously selected elements before the latest traversal method.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            end()
+                                        </li>
+                                        <li class="list-group-item">
+                                            This method does not accept any arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>end</i> method will select the previous stack of vQuery elements before the last traversal method was called and created a new stack. <i>end()</i> can be called in sequence or at any point on the chain and will counter the last reversal method.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        eq
+                                    </strong>
+                                    <small>
+                                        Return the selected element in the array wrapped in vQuery
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            eq( <em>index</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>index</b>
+                                            <span class='d-block'>Type: Integer</span>
+                                            The index of the element in the stack to be returned wrapped in vQuery.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>eq</i> method will return the specific element in the array and wrap it in vQuery to maintain the chain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        filter
+                                    </strong>
+                                    <small>
+                                        Reduce the currently selected elements by checking them.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    <ul class="list-group mb-2">
+                                        <li class="list-group-item active">
+                                            filter( <em>selector</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>selector</b>
+                                            <span class='d-block'>Type: String</span>
+                                            A string selector that is matched against each element and is returned if true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            filter( <em>element</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>element</b>
+                                            <span class='d-block'>Type: HTMLElement</span>
+                                            An element that is matched against each selected element and is returned if true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            filter( <em>collection</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>collection</b>
+                                            <span class='d-block'>Type: HTMLCollection</span>
+                                            Each selected element is matched against each element in the stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            filter( <em>vQuery</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>vQuery</b>
+                                            <span class='d-block'>Type: vQuery</span>
+                                            Each selected element is matched against each element in the vQuery stack and returned if at least one is true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            filter( <em>fn</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>fn</b>
+                                            <span class='d-block'>Type: Function ( Integer index, Element element )</span>
+                                            Each selected element is tested by a function and is kept if the function returns true.
+                                        </li>
+                                        <li class="list-group-item active">
+                                            filter( <em>arg1 [, arg2 [, argN ]]</em> )
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b class='d-block'>arg</b>
+                                            <span class='d-block'>Type: filterable ( selector / element / collection / vQuery / fn )</span>
+                                            Each selected element is tested by each argument and is kept if the element matches one of the arguments.
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <p>The <i>filter</i> method will return the specific element in the array provided it passes the test. It is possible to use multiple arguments for the element which will return the element if it matches at least one of the arguments.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        get
+                                    </strong>
+                                    <small>
+                                        Return the selected element in the array.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                    The <i>get</i> method will return the specific element in the array.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        map
+                                    </strong>
+                                    <small>
+                                        Alter the array of elements with the returned value.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        push
+                                    </strong>
+                                    <small>
+                                        Add elements onto the stack of selected elements and not just the chain.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        remove
+                                    </strong>
+                                    <small>
+                                        Removes the selected elements from the DOM and does not return a reference.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                    </section>
+                    
+                    <section class='mb-4'>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        Style
+                                    </strong>
+                                </h3>
+                            </div>
+                            <!--<div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>-->
+                         </div>
+                         
+                         <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        css
+                                    </strong>
+                                    <small>
+                                        Add, alter or retrieve the specified styles to the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  hide
+                                    </strong>
+                                    <small>
+                                        Don't display and hide the selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  show
+                                    </strong>
+                                    <small>
+                                        Show and display any hidden selected elements.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+                    <section class='mb-4'>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        Misc
+                                    </strong>
+                                </h3>
+                            </div>
+                        
+                            <!--<div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>-->
+                         </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  $( <span class='text-muted'>fn</span> )
+                                    </strong>
+                                    <small>
+                                        Run the function when the page has loaded and all elements have been populated.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                        each
+                                    </strong>
+                                    <small>
+                                        Loop through each element and target it independantly.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                         
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <strong class='d-block text-gray-dark'>
+                                  hasClass
+                                    </strong>
+                                    <small>
+                                        Returns whether or not at least one element contains the class.
+                                    </small>
+                                </h5>
+                            </div>
+                        
+                            <div class="collapse" aria-labelledby="">
+                                 <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                         </div>
+                    </section>
+                </div>
+            </div>
+            
+        </div>
+
+        <script>
+            let $allHeaders = $()
+            $('.card:nth-child(1)').each(function(){
+                var $this = $(this), $nextCards = $this.nextAll(), $cardHeaders = $nextCards.find('.card-header strong')
+                $allHeaders.push($cardHeaders)
+                
+                $this.find('.card-header strong').click(function(){
+                    let $nextShown = $nextCards.find('.show')
+                    if($nextCards.length == $nextShown.length) $cardHeaders.click()
+                    else $nextCards.find('.collapse:not(.show)').prev().find('strong').click()
+                })
+            })
+            
+            $allHeaders.click(function(){
+                let txt = $(this).closest('.card').find('.collapse')
+                if(txt.hasClass('show')) txt.removeClass('show').css({height: '0'})
+                else txt.addClass('show').css({height: txt.find('.card-body')[0].clientHeight+'px'})
+            })
+        </script>
+    </body>
+</html>

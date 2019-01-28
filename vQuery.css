@@ -1,0 +1,22 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    margin: 20px;
+}
+
+.card .card-header strong {
+    cursor: pointer;
+}
+
+.collapse {
+    transition: height 0.3s;
+    display: block !important;
+    height: 0;
+}
+
+.jumbotron {
+    background-color: silver;
+}

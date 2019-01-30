@@ -3,6 +3,11 @@ body, html {
     padding: 0;
 }
 
+#wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 #content {
     margin: 20px;
 }
